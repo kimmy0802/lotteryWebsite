@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>LotteryWeb</display-name>
+	<listener>
+		<listener-class>com.km.model.DailySchedulerMB</listener-class>				
+	</listener>
+	<listener>
+		<listener-class>com.km.model.DailySchedulerMT</listener-class>				
+	</listener>
+	<listener>
+		<listener-class>com.km.model.DailySchedulerMN</listener-class>				
+	</listener>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- __________________________________website __________________________________ -->
+	<servlet>
+		<servlet-name>LotteryController</servlet-name>
+		<servlet-class>com.km.controller.website.LotteryController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LotteryController</servlet-name>
+		<url-pattern>/Lottery</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LotteryOfProvinceController</servlet-name>
+		<servlet-class>com.km.controller.website.LotteryOfProvinceController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LotteryOfProvinceController</servlet-name>
+		<url-pattern>/LotteryOfProvince</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LotteryOfDateController</servlet-name>
+		<servlet-class>com.km.controller.website.LotteryOfDateController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LotteryOfDateController</servlet-name>
+		<url-pattern>/LotteryOfDate</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Search lottery -->
+	<servlet>
+		<servlet-name>SearchLotteryController</servlet-name>
+		<servlet-class>com.km.controller.website.SearchLotteryController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchLotteryController</servlet-name>
+		<url-pattern>/SearchLottery</url-pattern>
+	</servlet-mapping>
+	
+	<!-- CostOfPrizes -->
+	<servlet>
+		<servlet-name>CostOfPrizesController</servlet-name>
+		<servlet-class>com.km.controller.website.CostOfPrizesController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CostOfPrizesController</servlet-name>
+		<url-pattern>/CostOfPrizes</url-pattern>
+	</servlet-mapping>
+	<!-- account -->
+	<servlet>
+		<servlet-name>RegisterController</servlet-name>
+		<servlet-class>com.km.controller.website.RegisterController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterController</servlet-name>
+		<url-pattern>/Register</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ForgetPasswordController</servlet-name>
+		<servlet-class>com.km.controller.website.ForgetPasswordController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ForgetPasswordController</servlet-name>
+		<url-pattern>/ForgetPassword</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Login -->
+	<servlet>
+		<servlet-name>LoginWithFbController</servlet-name>
+		<servlet-class>com.km.controller.accessweb.LoginWithFbController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginWithFbController</servlet-name>
+		<url-pattern>/LoginWithFb</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LoginWithGoogleController</servlet-name>
+		<servlet-class>com.km.controller.accessweb.LoginWithGoogleController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginWithGoogleController</servlet-name>
+		<url-pattern>/LoginWithGoogle</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LoginWithSystemAccountController</servlet-name>
+		<servlet-class>com.km.controller.accessweb.LoginWithSystemAccountController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginWithSystemAccountController</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- ______________________________user ______________________________ -->
+	<!-- HistorySearchLotteryController -->
+	<servlet>
+		<servlet-name>HistorySearchLotteryController</servlet-name>
+		<servlet-class>com.km.controller.website.HistorySearchLotteryController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HistorySearchLotteryController</servlet-name>
+		<url-pattern>/HistorySearchLottery</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UpdateAccountController</servlet-name>
+		<servlet-class>com.km.controller.user.UpdateAccountController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateAccountController</servlet-name>
+		<url-pattern>/UpdateAccount</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>LogoutController</servlet-name>
+		<servlet-class>com.km.controller.user.LogoutController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutController</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+	
+
+	<!-- ______________________________admin conttroler________________________________ -->
+	<!-- admin: accounts -->
+	<servlet>
+		<servlet-name>AccountsListController</servlet-name>
+		<servlet-class>com.km.controller.admin.AccountsListController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AccountsListController</servlet-name>
+		<url-pattern>/AccountsList</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DeleteAccountsController</servlet-name>
+		<servlet-class>com.km.controller.admin.DeleteAccountsController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteAccountsController</servlet-name>
+		<url-pattern>/DeleteAccounts</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ResetAccountForUserController</servlet-name>
+		<servlet-class>com.km.controller.admin.ResetAccountForUserController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResetAccountForUserController</servlet-name>
+		<url-pattern>/ResetAccountForUser</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UpdateAccountsController</servlet-name>
+		<servlet-class>com.km.controller.admin.UpdateAccountsController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateAccountsController</servlet-name>
+		<url-pattern>/UpdateAccounts</url-pattern>
+	</servlet-mapping>
+	<!-- HistoryAccountsAccessController -->
+	<servlet>
+		<servlet-name>HistoryAccountsAccessController</servlet-name>
+		<servlet-class>com.km.controller.admin.HistoryAccountsAccessController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HistoryAccountsAccessController</servlet-name>
+		<url-pattern>/HistoryAccountsAccess</url-pattern>
+	</servlet-mapping>
+
+	<!-- admin: lotteries -->
+	<servlet>
+		<servlet-name>LotteriesListController</servlet-name>
+		<servlet-class>com.km.controller.admin.LotteriesListController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LotteriesListController</servlet-name>
+		<url-pattern>/LotteriesList</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>CreateLotteriesController</servlet-name>
+		<servlet-class>com.km.controller.admin.CreateLotteriesController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateLotteriesController</servlet-name>
+		<url-pattern>/CreateLotteries</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UpdateLotteriesController</servlet-name>
+		<servlet-class>com.km.controller.admin.UpdateLotteriesController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UpdateLotteriesController</servlet-name>
+		<url-pattern>/UpdateLotteries</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DeleteLotteriesController</servlet-name>
+		<servlet-class>com.km.controller.admin.DeleteLotteriesController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteLotteriesController</servlet-name>
+		<url-pattern>/DeleteLotteries</url-pattern>
+	</servlet-mapping>
+
+	<!-- reset password from admin -->
+	<servlet>
+		<servlet-name>ResetPasswordFromAdminController</servlet-name>
+		<servlet-class>com.km.controller.admin.ResetPasswordFromAdminController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResetPasswordFromAdminController</servlet-name>
+		<url-pattern>/ResetPassword</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ProvincesController</servlet-name>
+		<servlet-class>com.km.controller.admin.ProvincesController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProvincesController</servlet-name>
+		<url-pattern>/Provinces</url-pattern>
+	</servlet-mapping>
+
+	<!-- set language: Vietnamese -->
+
+	<filter>
+		<filter-name>encoding-filter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>encoding-filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
+	</jsp-config>
+	<!-- set timeout for session -->
+	<session-config>
+		<session-timeout>15</session-timeout> <!-- in minutes -->
+	</session-config>
+</web-app>
